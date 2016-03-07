@@ -90,7 +90,7 @@ plot(classt[1,], xaxt = "n", xlim=c(1,14), ylim=c(0,8),
      xlab="IBQ-R Scales")
 axis(1, at = 1:14, labels = FALSE)
 text(x = seq(1, 14, by=1), -1.9, labels = labels, srt = 90, pos = 4, xpd = TRUE)
-textbox(1, 2, labels)
+#textbox(1, 2, labels)
 
 lines(classt[1,], col="blue")
 points(classt[2,])
