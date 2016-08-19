@@ -22,7 +22,7 @@ rm(list=ls())
 
 library(TeachingDemos)
 
-x <- data.frame(read.csv("/nethome/erichs/class3a.csv"))
+x <- data.frame(read.csv("/nethome/erichs/class3a_fin.csv"))
 
 #--removes the class field for use later, and change NA to zero
 
@@ -42,13 +42,13 @@ class3 <- subset(x, class==3)
 class3 <- class3[,-15]
 class3[is.na(class3)] <- 0
 
-class4 <- subset(x, class==4)
-class4 <- class4[,-15]
-class4[is.na(class4)] <- 0
+#class4 <- subset(x, class==4)
+#class4 <- class4[,-15]
+#class4[is.na(class4)] <- 0
 
-class5 <- subset(x, class==5)
-class5 <- class5[,-15]
-class5[is.na(class5)] <- 0
+#class5 <- subset(x, class==5)
+#class5 <- class5[,-15]
+#class5[is.na(class5)] <- 0
 
 
 #--loop variable and prepopulated matrices
@@ -57,8 +57,8 @@ var <- c(1:14)
 classmatrix1 <- matrix(NA, nrow = 14, ncol = 1)
 classmatrix2 <- matrix(NA, nrow = 14, ncol = 1)
 classmatrix3 <- matrix(NA, nrow = 14, ncol = 1)
-classmatrix4 <- matrix(NA, nrow = 14, ncol = 1)
-classmatrix5 <- matrix(NA, nrow = 14, ncol = 1)
+#classmatrix4 <- matrix(NA, nrow = 14, ncol = 1)
+#classmatrix5 <- matrix(NA, nrow = 14, ncol = 1)
 #classmatrix4 <- matrix(NA, nrow = 14, ncol = 1)
 
 
@@ -76,17 +76,17 @@ for (i in var) {
   classmatrix3[i,] <- mean(class3[,i]) 
 }
 
-for (i in var) {
-  classmatrix4[i,] <- mean(class4[,i]) 
-}
+#for (i in var) {
+#  classmatrix4[i,] <- mean(class4[,i]) 
+#}
 
-for (i in var) {
-  classmatrix5[i,] <- mean(class5[,i]) 
-}
+#for (i in var) {
+#  classmatrix5[i,] <- mean(class5[,i]) 
+#}
 
 #--now merge the vectors back to one data frame
 
-classmatrixall <- cbind(classmatrix1, classmatrix2, classmatrix3, classmatrix4, classmatrix5)
+classmatrixall <- cbind(classmatrix1, classmatrix2, classmatrix3)
 
 #--and transpose it
 
@@ -94,19 +94,19 @@ classt <- t(classmatrixall)
 
 #--now plot it!>
 
-par(mar=c(9,7.5,2,2))
+par(mar=c(9,4,2,2))
 par(mgp=c(7.7,1,0))
-par(oma=c(0,0,0,0) )
+par(oma=c(0,0,2,0) )
 
 labels <- c("act", "sl", "hp", "ps", "app", "vr", "dl", "fear", "sad", "fall", "do", "lp", "sooth", "cudd")
 mar.default <- c(2,1,0)
 plot(classt[1,], family = "Garamond", xaxt = "n", xlim=c(1,14), ylim=c(0,8),  
-     main="Figure 1. Latent Profile Analysis (LPA) Plot: 3-class solution",
-     xlab="IBQ-R Scales \n \nNOTE: act = activity, sl = smiling/laughter, hp = high intensity pleasure, ps = perceptual sensitivity, \napp = approach, vr = vocal reactivity, dl = distress to limitations, fear = fearfulness, \nsad = sadness, fall = falling reactivity, do = duration of orienting, \nlp = low intensity pleasure, sooth = soothability, cudd = cuddliness",
+     main="Figure 1. Latent Profile Analysis (LPA) Plot: 3-class Solution, with Infant Age as a Covariate",
+     xlab=" \n \nIBQ-R Scales: act = activity, sl = smiling/laughter, hp = high intensity pleasure, \nps = perceptual sensitivity, app = approach, vr = vocal reactivity, dl = distress to limitations, \nfear = fearfulness, sad = sadness, fall = falling reactivity, do = duration of orienting, \nlp = low intensity pleasure, sooth = soothability, cudd = cuddliness",
      ylab="")
-title(ylab="Frequency Rating", line=2.2, cex.lab=1.0, family = "Garamond")
+title(ylab="Frequency Rating", line=2, cex.lab=1.0, family = "Garamond")
 axis(1, at = 1:14, labels = FALSE)
-text(x = seq(1, 14, by=1), -1.4, labels = labels, srt = 90, pos = 4, xpd = TRUE)
+text(x = seq(1, 14, by=1), -1.5, labels = labels, srt = 90, pos = 4, xpd = TRUE)
 
 
 lines(classt[1,], col="blue")
@@ -114,10 +114,10 @@ points(classt[2,])
 lines(classt[2,], col="green")
 points(classt[3,])
 lines(classt[3,], col="red")
-points(classt[4,])
-lines(classt[4,], col="orange")
-points(classt[5,])
-lines(classt[5,], col="magenta")
+#points(classt[4,])
+#lines(classt[4,], col="orange")
+#points(classt[5,])
+#lines(classt[5,], col="magenta")
 
 #--add a legend
 

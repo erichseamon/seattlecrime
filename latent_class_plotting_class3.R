@@ -101,12 +101,12 @@ par(oma=c(0,0,0,0) )
 labels <- c("act", "sl", "hp", "ps", "app", "vr", "dl", "fear", "sad", "fall", "do", "lp", "sooth", "cudd")
 mar.default <- c(2,1,0)
 plot(classt[1,], family = "Garamond", xaxt = "n", xlim=c(1,14), ylim=c(0,8),  
-     main="Figure 2. Latent Profile Analysis (LPA) Plot: 3-class solution, with infant age as a covariate",
-     xlab="IBQ-R Scales \n \nNOTE: act = activity, sl = smiling/laughter, hp = high intensity pleasure, ps = perceptual sensitivity, \napp = approach, vr = vocal reactivity, dl = distress to limitations, fear = fearfulness, \nsad = sadness, fall = falling reactivity, do = duration of orienting, \nlp = low intensity pleasure, sooth = soothability, cudd = cuddliness",
+     main="Figure 1. Latent profile analysis plot: 3-class solution",
+     xlab=" \n \nIBQ-R Scales: act = activity, sl = smiling/laughter, hp = high intensity pleasure, \nps = perceptual sensitivity, app = approach, vr = vocal reactivity, dl = distress to limitations, \nfear = fearfulness, sad = sadness, fall = falling reactivity, do = duration of orienting, \nlp = low intensity pleasure, sooth = soothability, cudd = cuddliness",
      ylab="")
 title(ylab="Frequency Rating", line=2.2, cex.lab=1.0, family = "Garamond")
 axis(1, at = 1:14, labels = FALSE)
-text(x = seq(1, 14, by=1), -1.4, labels = labels, srt = 90, pos = 4, xpd = TRUE)
+text(x = seq(1, 14, by=1), -1.1, labels = labels, srt = 90, pos = 4, xpd = TRUE)
 
 
 lines(classt[1,], col="blue")

@@ -92,9 +92,13 @@ classt <- t(classmatrixall)
 #--now plot it!
 
 plot(classt[1,], xaxt = "n", ylim=c(0,7),
-     main="latent class analysis plot",
-     ylab="ylabel",
-     xlab="xlabel") 
+     main="Figure 3. Latent profile analysis plot: 5-class solution",
+     xlab=" \n \nIBQ-R Scales: act = activity, sl = smiling/laughter, hp = high intensity pleasure, \nps = perceptual sensitivity, app = approach, vr = vocal reactivity, dl = distress to limitations, \nfear = fearfulness, sad = sadness, fall = falling reactivity, do = duration of orienting, \nlp = low intensity pleasure, sooth = soothability, cudd = cuddliness",
+     ylab="")
+     title(ylab="Frequency Rating", line=2.2, cex.lab=1.0, family = "Garamond")
+     axis(1, at = 1:14, labels = FALSE)
+     text(x = seq(1, 14, by=1), -1, labels = labels, srt = 90, pos = 4, xpd = TRUE)
+
 lines(classt[1,], col="blue")
 points(classt[2,])
 lines(classt[2,], col="green")
@@ -108,5 +112,3 @@ lines(classt[5,], col="magenta")
 #--add a legend
 
 legend("bottomright", c("class1", "class2", "class3", "class4", "class5"), lty=c(1,1), lwd=c(2,5, 2,5, 2,5, 2,5, 2,5), col=c("blue", "green", "red", "orange", "magenta"))
-
-
