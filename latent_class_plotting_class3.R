@@ -23,6 +23,11 @@ rm(list=ls())
 library(TeachingDemos)
 
 x <- data.frame(read.csv("/nethome/erichs/class3fin.csv"))
+x <- data.frame(read.csv("/nethome/erichs/lcafinal/IBQ-R_class.csv"))
+
+
+
+
 
 #--removes the class field for use later, and change NA to zero
 
