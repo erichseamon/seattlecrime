@@ -79,8 +79,8 @@ classt <- t(classmatrixall)
 
 #--now plot it!
 
-plot(classt[1,], xaxt = "n", ylim=c(0,7),
-     main="Figure 1. 3-profile solution for the younger subsample", adj=0,
+plot(classt[1,], pch = 21, col="gray", xaxt = "n", ylim=c(0,7),
+     main="Figure 1a. 3-profile solution for the younger subsample", adj=0,
      xlab="",
      ylab="")
      title(ylab="Frequency Rating", line=2.2, cex.lab=1.0, family = "Garamond")
@@ -90,15 +90,13 @@ plot(classt[1,], xaxt = "n", ylim=c(0,7),
      mtext("nvr = vocal reactivity, dl = distress to limitations, fear = fearfulness, sad = sadness, fall = falling reactivity, do = duration of orienting", side=1, line=4) 
      mtext("lp = low intensity pleasure, sth = soothability, cudd = cuddliness", side=1, line=5)
      
-
-     lines(classt[1,], lty=1, lwd=5, col="gray")
-     points(classt[2,])
-     lines(classt[2,], lty=2, lwd=5, col="gray")
-     points(classt[3,])
-     lines(classt[3,], lty=3, lwd=5, col="gray")
-     
+     lines(classt[1,], lty=1, lwd=3, col="gray")
+     points(classt[2,], pch = 22, col="gray", cex=1.2)
+     lines(classt[2,], lty=2, lwd=3, col="gray")
+     points(classt[3,], pch = 23, col="gray", cex=1.2)
+     lines(classt[3,], lty=3, lwd=3, col="gray")
      
      #--add a legend
      
-     legend("bottomright", c("Profile 1: Low Reactive/Regulated", "Profile 2: Average Positive/Difficult to Calm", "Profile 3: High Positive/Regulated"), lty=c(1,2,3), lwd=c(3,5, 3,5, 3,5), col=c("gray", "gray", "gray"))
+     legend("bottomright", c("Profile 1: Low Reactive/Regulated", "Profile 2: Average Positive/Difficult to Calm", "Profile 3: High Positive/Regulated"), lty=c(1,2,3), seg.len=5, lwd=c(2,2, 2,2, 2,2), col=c("gray", "gray", "gray"), pch=c(21,22,23))
      
